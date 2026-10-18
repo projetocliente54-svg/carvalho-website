@@ -32,25 +32,39 @@ For example, to add Tailwind CSS:
 npx sv add tailwindcss
 ```
 
-## Developing
+## Deploy no Cloudflare Pages
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Este projeto está 100% configurado para deploy contínuo no **Cloudflare Pages** através do `@sveltejs/adapter-cloudflare`.
+
+### Configurações no painel do Cloudflare Pages:
+
+- **Framework preset:** `SvelteKit`
+- **Build command:** `npm run build`
+- **Build output directory:** `.svelte-kit/cloudflare`
+- **Root directory:** `/` (ou a pasta do projeto se estiver em monorepo)
+- **Node.js Version:** `20` (definida automaticamente pelos arquivos `.node-version`, `.nvmrc` e `engines` no `package.json`)
+
+---
+
+## Desenvolvimento Local
 
 ```sh
+# Instalar dependências
+npm install
+
+# Iniciar servidor de desenvolvimento
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+# Checagem de tipos
+npm run check
 
-## Building
+# Linter e formatação
+npm run lint
+npm run format
 
-To create a production version of your app:
-
-```sh
+# Build de produção
 npm run build
+
+# Preview da build
+npm run preview
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
