@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+	--font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+	--color-navy-950: #0b1220;
+	--color-navy-900: #0f1a2e;
+	--color-navy-800: #123a63;
+	--color-brand-blue: #087fc4;
+	--color-brand-light: #0ea5e9;
+	--color-surface-bg: #ffffff;
+	--color-surface-alt: #f5f7f9;
+	--color-surface-dark: #0b1220;
+	--color-text-primary: #0b1220;
+	--color-text-secondary: #657181;
+	--color-border-subtle: #e2e8f0;
+}
+
+:root {
+	color-scheme: light;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+body {
+	color: var(--color-navy-950);
+	background-color: #ffffff;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-heading);
+	letter-spacing: -0.02em;
+}
