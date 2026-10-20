@@ -1,87 +1,153 @@
-export interface SiteConfig {
-	name: string;
-	legalName: string;
-	tagline: string;
-	shortDescription: string;
-	longDescription: string;
-	url: string;
-	domain: string;
-	locale: string;
+/**
+ * Configuração central da Carvalho Refrigeração.
+ *
+ * Todos os dados comerciais, links e textos de SEO saem daqui.
+ * Campos marcados com `PENDENTE` ainda não foram confirmados em fonte oficial
+ * e ficam fora do site (e dos dados estruturados) enquanto estiverem `null`.
+ *
+ * Fontes verificadas em 20/10/2026:
+ * - Instagram oficial @carvalho_refrigeracao__ (bio: técnico de ar-condicionado,
+ *   vendas de ar-condicionado, instalação, manutenção, higienização, Paraty-RJ).
+ * - O link de WhatsApp da bio (wa.me/message/U7IY66VZUAOPD1) aponta para
+ *   +55 24 99279-1630 — o mesmo número da ficha pública da empresa.
+ */
+
+export interface PostalAddress {
+	streetAddress: string;
+	neighborhood: string;
 	city: string;
-	state: string;
 	region: string;
-	contact: {
-		phone: string;
-		phoneFormatted: string;
-		whatsapp: string;
-		whatsappFormatted: string;
-		whatsappMessage: string;
-		email: string;
-		scheduleHours: string;
-		businessDays: string;
-	};
-	navigation: Array<{
-		name: string;
-		href: string;
-	}>;
-	servicesNav: Array<{
-		name: string;
-		href: string;
-		id: string;
-	}>;
-	social: {
-		instagram?: string;
-		linkedin?: string;
-	};
+	postalCode: string | null;
 }
 
-export const siteConfig: SiteConfig = {
-	name: 'AURA CLIMATIZAÇÃO',
-	legalName: 'Aura Climatização & Engenharia Térmica',
-	tagline: 'Conforto térmico com precisão técnica e acabamento arquitetônico',
-	shortDescription:
-		'Instalação planejada, manutenção preventiva e assistência técnica de ar-condicionado para residências e empresas.',
-	longDescription:
-		'Projetamos, instalamos e cuidamos de sistemas de climatização para ambientes residenciais e comerciais com rigor técnico, organização e respeito à rotina do cliente.',
-	url: 'https://auraclimatizacao.com.br',
-	domain: 'auraclimatizacao.com.br',
-	locale: 'pt-BR',
-	city: 'São Paulo',
-	state: 'SP',
-	region: 'Região Metropolitana e Cidades Vizinhas',
+export interface NavItem {
+	label: string;
+	href: `#${string}`;
+}
+
+export type WhatsAppIntent =
+	| 'orcamento'
+	| 'instalacao'
+	| 'manutencao'
+	| 'higienizacao'
+	| 'assistencia'
+	| 'manutencaoHigienizacao'
+	| 'equipamentos'
+	| 'ajudaEscolher'
+	| 'duvidas'
+	| 'avaliacao';
+
+export interface SiteConfig {
+	name: string;
+	city: string;
+	region: string;
+	regionCode: string;
+	/**
+	 * URL pública definitiva, sem barra final (ex.: 'https://www.carvalhorefrigeracao.com.br').
+	 * PENDENTE: enquanto for `null`, canonical, sitemap e robots usam a origem da requisição.
+	 */
+	url: string | null;
 	contact: {
-		phone: '5511999990000',
-		phoneFormatted: '(11) 99999-0000',
-		whatsapp: '5511999990000',
-		whatsappFormatted: '(11) 99999-0000',
-		whatsappMessage:
-			'Olá! Gostaria de solicitar um orçamento para climatização com a Aura Climatização.',
-		email: 'contato@auraclimatizacao.com.br',
-		scheduleHours: '08:00 às 18:00',
-		businessDays: 'Segunda a sexta-feira'
+		/** Somente dígitos, com DDI e DDD. */
+		whatsapp: string;
+		phoneDisplay: string;
+		/** PENDENTE: endereço só aparece em diretório de terceiros (Av. Roberto Silveira, 843 — Centro). */
+		address: PostalAddress | null;
+		/** PENDENTE: horário de atendimento não divulgado no perfil oficial. */
+		openingHours: string | null;
+	};
+	social: {
+		instagram: string;
+		instagramHandle: string;
+		/** PENDENTE: URL do perfil oficial no Google Maps. */
+		googleMaps: string | null;
+		/** PENDENTE: link "Escrever avaliação" do Perfil da Empresa no Google. */
+		googleReview: string | null;
+	};
+	brand: {
+		/** Substitua pelo arquivo original em alta resolução quando disponível. */
+		logo: string;
+		logoSize: number;
+	};
+	seo: {
+		title: string;
+		description: string;
+		ogImage: string;
+		ogImageAlt: string;
+		themeColor: string;
+	};
+	navigation: NavItem[];
+	whatsappMessages: Record<WhatsAppIntent, string>;
+}
+
+const fromSite = 'Olá! Vim pelo site da Carvalho Refrigeração';
+
+export const siteConfig: SiteConfig = {
+	name: 'Carvalho Refrigeração',
+	city: 'Paraty',
+	region: 'Rio de Janeiro',
+	regionCode: 'RJ',
+	url: null,
+	contact: {
+		whatsapp: '5524992791630',
+		phoneDisplay: '(24) 99279-1630',
+		address: null,
+		openingHours: null
+	},
+	social: {
+		instagram: 'https://www.instagram.com/carvalho_refrigeracao__/',
+		instagramHandle: '@carvalho_refrigeracao__',
+		googleMaps: null,
+		googleReview: null
+	},
+	brand: {
+		logo: '/brand/carvalho-logo.webp',
+		logoSize: 100
+	},
+	seo: {
+		title: 'Carvalho Refrigeração | Ar-Condicionado em Paraty, RJ',
+		description:
+			'Instalação, manutenção, higienização e venda de ar-condicionado em Paraty, RJ. Fale com a Carvalho Refrigeração pelo WhatsApp e consulte serviços e aparelhos disponíveis.',
+		ogImage: '/og-carvalho.jpg',
+		ogImageAlt: 'Carvalho Refrigeração — ar-condicionado em Paraty, RJ',
+		themeColor: '#080A0D'
 	},
 	navigation: [
-		{ name: 'Início', href: '#inicio' },
-		{ name: 'Serviços', href: '#servicos' },
-		{ name: 'Soluções', href: '#solucoes' },
-		{ name: 'Processo', href: '#processo' },
-		{ name: 'Projetos', href: '#projetos' },
-		{ name: 'Dúvidas', href: '#faq' },
-		{ name: 'Contato', href: '#contato' }
+		{ label: 'Início', href: '#inicio' },
+		{ label: 'Serviços', href: '#servicos' },
+		{ label: 'Equipamentos', href: '#equipamentos' },
+		{ label: 'Trabalhos', href: '#trabalhos' },
+		{ label: 'Contato', href: '#contato' }
 	],
-	servicesNav: [
-		{ name: 'Instalação de Ar-Condicionado', href: '#servicos', id: 'instalacao' },
-		{ name: 'Manutenção Preventiva', href: '#servicos', id: 'manutencao' },
-		{ name: 'Assistência Técnica', href: '#servicos', id: 'assistencia' },
-		{ name: 'Projetos de Climatização', href: '#servicos', id: 'projetos' }
-	],
-	social: {
-		instagram: 'https://instagram.com',
-		linkedin: 'https://linkedin.com'
+	whatsappMessages: {
+		orcamento: `${fromSite} e gostaria de solicitar um orçamento.`,
+		instalacao: `${fromSite} e quero orçamento para instalação de ar-condicionado.`,
+		manutencao: `${fromSite} e quero orçamento para manutenção de ar-condicionado.`,
+		higienizacao: `${fromSite} e quero orçamento para higienização de ar-condicionado.`,
+		assistencia: `${fromSite}. Meu ar-condicionado está com problema e preciso de assistência técnica.`,
+		manutencaoHigienizacao: `${fromSite} e preciso de manutenção ou higienização do meu ar-condicionado.`,
+		equipamentos:
+			'Olá! Conheci o site da Carvalho Refrigeração e gostaria de consultar os modelos de ar-condicionado disponíveis para compra. Podem me ajudar?',
+		ajudaEscolher: [
+			`${fromSite} e quero ajuda para escolher um ar-condicionado.`,
+			'',
+			'Ambiente (quarto, sala, loja...):',
+			'Tamanho aproximado (m²):',
+			'Recebe sol da tarde?',
+			'Já tem ponto de instalação?'
+		].join('\n'),
+		duvidas: `${fromSite} e tenho uma dúvida.`,
+		avaliacao: `${fromSite}. Já fui atendido(a) e gostaria de deixar um comentário sobre o serviço.`
 	}
 };
 
-export function getWhatsAppUrl(customMessage?: string): string {
-	const message = encodeURIComponent(customMessage || siteConfig.contact.whatsappMessage);
-	return `https://wa.me/${siteConfig.contact.whatsapp}?text=${message}`;
+/** Link wa.me com a mensagem codificada; o visitante revisa o texto antes de enviar. */
+export function whatsappUrl(intent: WhatsAppIntent = 'orcamento'): string {
+	const text = encodeURIComponent(siteConfig.whatsappMessages[intent]);
+	return `https://wa.me/${siteConfig.contact.whatsapp}?text=${text}`;
+}
+
+/** URL base usada em canonical, Open Graph, sitemap e robots. */
+export function siteOrigin(requestOrigin: string): string {
+	return (siteConfig.url ?? requestOrigin).replace(/\/$/, '');
 }

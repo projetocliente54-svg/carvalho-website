@@ -1,60 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
 @theme {
-	--font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-	--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--font-heading: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 
-	--color-navy-950: #0b1220;
-	--color-navy-900: #0f1a2e;
-	--color-navy-800: #123a63;
-	--color-brand-blue: #087fc4;
-	--color-brand-light: #0ea5e9;
-	--color-surface-bg: #ffffff;
-	--color-surface-alt: #f5f7f9;
-	--color-surface-dark: #0b1220;
-	--color-text-primary: #0b1220;
-	--color-text-secondary: #657181;
-	--color-border-subtle: #e2e8f0;
+	/* Identidade Carvalho: preto do logotipo, grafite, azul das montanhas */
+	--color-ink: #080a0d;
+	--color-graphite: #11161c;
+	--color-graphite-2: #1a2129;
+	--color-paper: #f5f7fa;
+	--color-mist: #a4adb8;
+	--color-slate-ink: #4f5a67;
+	--color-brand: #1676d2;
+	--color-brand-strong: #0f60b0;
+	--color-sky: #55b8ff;
+	--color-steel: #7b9cc6;
+	--color-line: #dfe4ea;
 }
 
 :root {
 	color-scheme: light;
+	--header-h: 72px;
 }
 
 html {
 	scroll-behavior: smooth;
+	scroll-padding-top: var(--header-h);
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	background-color: var(--color-paper);
+	color: var(--color-ink);
 	font-family: var(--font-sans);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: clip;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-heading);
+	font-stretch: 108%;
+	letter-spacing: -0.025em;
+	text-wrap: balance;
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-sky);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+/* Rótulo técnico usado nos eyebrows */
+.eyebrow {
+	font-family: var(--font-heading);
+	font-size: 0.75rem;
+	font-weight: 600;
+	font-stretch: 115%;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+/* Entrada suave na rolagem — só ativa com JS e sem preferência por movimento reduzido */
+html.js [data-reveal] {
+	opacity: 0;
+	transform: translateY(18px);
+	transition:
+		opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+		transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+	transition-delay: var(--reveal-delay, 0ms);
+}
+
+html.js [data-reveal].is-visible {
+	opacity: 1;
+	transform: none;
+}
+
+/* Linhas de fluxo de ar */
+@keyframes airflow {
+	to {
+		stroke-dashoffset: -240;
+	}
+}
+
+.airflow path {
+	stroke-dasharray: 6 18;
+	animation: airflow 14s linear infinite;
+}
+
+.airflow path:nth-child(2) {
+	animation-duration: 19s;
+}
+
+.airflow path:nth-child(3) {
+	animation-duration: 24s;
 }
 
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
 	}
+
+	html.js [data-reveal] {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+
+	.airflow path {
+		animation: none;
+	}
+
 	*,
 	*::before,
 	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
 	}
-}
-
-body {
-	color: var(--color-navy-950);
-	background-color: #ffffff;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	overflow-x: hidden;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: var(--font-heading);
-	letter-spacing: -0.02em;
 }

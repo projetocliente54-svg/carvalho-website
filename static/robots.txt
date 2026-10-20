@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://auraclimatizacao.com.br/sitemap.xml
