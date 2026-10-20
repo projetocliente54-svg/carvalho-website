@@ -33,6 +33,7 @@ export type WhatsAppIntent =
 	| 'assistencia'
 	| 'manutencaoHigienizacao'
 	| 'equipamentos'
+	| 'marcas'
 	| 'ajudaEscolher'
 	| 'duvidas'
 	| 'avaliacao';
@@ -109,14 +110,15 @@ export const siteConfig: SiteConfig = {
 		description:
 			'Instalação, manutenção, higienização e venda de ar-condicionado em Paraty, RJ. Fale com a Carvalho Refrigeração pelo WhatsApp e consulte serviços e aparelhos disponíveis.',
 		ogImage: '/og-carvalho.jpg',
-		ogImageAlt: 'Carvalho Refrigeração — ar-condicionado em Paraty, RJ',
+		ogImageAlt:
+			'Carvalho Refrigeração — ar-condicionado em Paraty, RJ, com foto de split instalado',
 		themeColor: '#080A0D'
 	},
 	navigation: [
 		{ label: 'Início', href: '#inicio' },
 		{ label: 'Serviços', href: '#servicos' },
 		{ label: 'Equipamentos', href: '#equipamentos' },
-		{ label: 'Trabalhos', href: '#trabalhos' },
+		{ label: 'Instalações', href: '#trabalhos' },
 		{ label: 'Contato', href: '#contato' }
 	],
 	whatsappMessages: {
@@ -128,6 +130,7 @@ export const siteConfig: SiteConfig = {
 		manutencaoHigienizacao: `${fromSite} e preciso de manutenção ou higienização do meu ar-condicionado.`,
 		equipamentos:
 			'Olá! Conheci o site da Carvalho Refrigeração e gostaria de consultar os modelos de ar-condicionado disponíveis para compra. Podem me ajudar?',
+		marcas: `${fromSite} e quero consultar os modelos de ar-condicionado Midea e Aufit e a disponibilidade.`,
 		ajudaEscolher: [
 			`${fromSite} e quero ajuda para escolher um ar-condicionado.`,
 			'',

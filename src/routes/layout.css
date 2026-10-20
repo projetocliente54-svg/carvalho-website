@@ -63,6 +63,22 @@ h3 {
 	text-transform: uppercase;
 }
 
+/* Trilhas horizontais (carrossel): rolagem por toque sem barra visível */
+@utility no-scrollbar {
+	scrollbar-width: none;
+	overscroll-behavior-x: contain;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+/* Desktop: indica que a trilha continua sem cortar o slide seco na borda */
+@media (min-width: 64rem) {
+	.fade-edge {
+		mask-image: linear-gradient(to right, #000 calc(100% - 7rem), transparent);
+	}
+}
+
 /* Entrada suave na rolagem — só ativa com JS e sem preferência por movimento reduzido */
 html.js [data-reveal] {
 	opacity: 0;

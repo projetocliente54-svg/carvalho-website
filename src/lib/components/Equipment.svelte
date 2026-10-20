@@ -20,15 +20,15 @@
 	<div class="grid grid-cols-1 lg:min-h-[44rem] lg:grid-cols-2">
 		<figure class="group relative min-h-[22rem] overflow-hidden sm:min-h-[28rem]">
 			<img
-				src="/img/ambiente-1200.webp"
-				srcset="/img/ambiente-800.webp 800w, /img/ambiente-1200.webp 1200w"
+				src="/img/condensadoras-midea-1200.webp"
+				srcset="/img/condensadoras-midea-800.webp 800w, /img/condensadoras-midea-1200.webp 1200w"
 				sizes="(min-width: 1024px) 50vw, 100vw"
 				width="1200"
-				height="900"
+				height="1494"
 				loading="lazy"
 				decoding="async"
-				alt="Sala de estar iluminada com sofá, poltronas e plantas — um ambiente para climatizar"
-				class="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
+				alt="Duas condensadoras Midea instaladas em suportes na fachada de uma casa, sob sol forte"
+				class="absolute inset-0 h-full w-full object-cover object-[50%_42%] transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
 			/>
 			<div
 				class="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-graphite/70"
@@ -39,6 +39,11 @@
 			>
 				Venda de equipamentos
 			</span>
+			<figcaption
+				class="absolute bottom-6 left-6 rounded-full bg-ink/65 px-3.5 py-1.5 text-xs text-white backdrop-blur lg:bottom-8 lg:left-8"
+			>
+				Condensadoras Midea instaladas pela Carvalho
+			</figcaption>
 		</figure>
 
 		<div class="relative flex items-center px-4 py-16 sm:px-10 sm:py-20 lg:px-12 xl:px-20">
@@ -72,6 +77,49 @@
 					A escolha do aparelho certo começa pelas necessidades do ambiente. Fale com a Carvalho
 					para consultar os modelos disponíveis e receber orientação antes de comprar.
 				</p>
+
+				<div class="mt-9 border-t border-white/10 pt-7">
+					<p class="eyebrow text-[0.65rem] text-steel">Marcas com que a Carvalho trabalha</p>
+					<ul class="mt-5 flex items-center" aria-label="Marcas de ar-condicionado">
+						<li class="pr-7">
+							<img
+								src="/img/marcas/midea.webp"
+								width="118"
+								height="51"
+								alt="Midea"
+								loading="lazy"
+								class="h-10 w-auto"
+							/>
+						</li>
+						<li class="border-l border-white/15 pl-7">
+							<img
+								src="/img/marcas/aufit.webp"
+								width="340"
+								height="75"
+								alt="Aufit"
+								loading="lazy"
+								class="h-[1.45rem] w-auto"
+							/>
+						</li>
+					</ul>
+					<a
+						href={whatsappUrl('marcas')}
+						target="_blank"
+						rel="noopener"
+						class="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky transition-colors hover:text-white"
+					>
+						Consultar modelos Midea e Aufit disponíveis
+						<svg
+							class="h-4 w-4 transition-transform group-hover:translate-x-1"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							aria-hidden="true"><path stroke-linecap="round" d="M5 12h14m0 0-6-6m6 6-6 6" /></svg
+						>
+						<span class="sr-only">(abre o WhatsApp)</span>
+					</a>
+				</div>
 
 				<div class="mt-9 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
 					<p class="text-sm font-semibold text-white">
@@ -114,8 +162,8 @@
 					</a>
 				</div>
 				<p class="mt-5 text-sm text-mist/80">
-					Modelos, marcas e valores variam conforme a disponibilidade — consulte as opções
-					atualizadas direto com a Carvalho.
+					Modelos e valores variam conforme a disponibilidade. Midea e Aufit são marcas de seus
+					respectivos fabricantes, citadas para indicar os produtos com que a Carvalho trabalha.
 				</p>
 			</div>
 		</div>

@@ -108,8 +108,8 @@
 	<link
 		rel="preload"
 		as="image"
-		href="/img/instalacao-detalhe-1024.webp"
-		imagesrcset="/img/instalacao-detalhe-640.webp 640w, /img/instalacao-detalhe-1024.webp 1024w"
+		href="/img/hero-tecnico-condensadora-900.webp"
+		imagesrcset="/img/hero-tecnico-condensadora-640.webp 640w, /img/hero-tecnico-condensadora-900.webp 900w"
 		imagesizes="(min-width: 1280px) 500px, (min-width: 1024px) 38vw, 100vw"
 		fetchpriority="high"
 	/>

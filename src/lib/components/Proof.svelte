@@ -2,6 +2,7 @@
 	import { siteConfig, whatsappUrl } from '#lib/config/site';
 	import { works, reviews, reviewSummary, instagramHighlights } from '#lib/data/proof';
 	import { reveal } from '#lib/actions/reveal';
+	import InstallationsCarousel from './InstallationsCarousel.svelte';
 
 	const dateFormat = new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric' });
 	const formatDate = (iso: string) => dateFormat.format(new Date(`${iso}T12:00:00`));
@@ -26,51 +27,58 @@
 
 <section id="trabalhos" class="bg-white py-20 sm:py-28" aria-labelledby="trabalhos-titulo">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-		<div class="max-w-3xl" use:reveal>
-			<p class="eyebrow text-brand">Trabalhos e avaliações</p>
-			<h2
-				id="trabalhos-titulo"
-				class="mt-4 text-4xl leading-[1.02] font-extrabold sm:text-5xl lg:text-[3.6rem]"
-			>
-				Trabalho bem feito aparece nos detalhes.
-			</h2>
-			<p class="mt-6 text-lg leading-relaxed text-slate-ink">
-				Conheça um pouco do trabalho da Carvalho e veja a experiência de quem já procurou a empresa.
+		<div class="grid gap-6 lg:grid-cols-12 lg:items-end" use:reveal>
+			<div class="lg:col-span-7">
+				<p class="eyebrow text-brand">Trabalhos realizados</p>
+				<h2
+					id="trabalhos-titulo"
+					class="mt-4 text-4xl leading-[1.02] font-extrabold sm:text-5xl lg:text-[3.6rem]"
+				>
+					Instalações reais. Cuidado em cada detalhe.
+				</h2>
+			</div>
+			<p class="text-lg leading-relaxed text-slate-ink lg:col-span-5 lg:pb-2">
+				Conheça um pouco do trabalho da Carvalho Refrigeração em diferentes ambientes.
 			</p>
 		</div>
 
-		<div class="mt-14 grid gap-6 lg:mt-16 lg:grid-cols-12">
-			<!-- Trabalhos realizados -->
+		{#if works.length > 0}
+			<div class="mt-12 lg:mt-14" use:reveal={80}>
+				<InstallationsCarousel
+					items={works}
+					label="Fotos de instalações da Carvalho Refrigeração"
+				/>
+			</div>
+		{/if}
+
+		<div class="mt-16 grid gap-6 lg:mt-20 lg:grid-cols-12">
+			<!-- Quem atende + Instagram -->
 			<div class="lg:col-span-7" use:reveal>
-				{#if works.length > 0}
-					<h3 class="sr-only">Trabalhos realizados</h3>
-					<div class="grid grid-cols-2 gap-4">
-						{#each works.slice(0, 3) as work, i (work.src)}
-							<figure class="group {i === 0 ? 'col-span-2' : ''}">
-								<div class="overflow-hidden rounded-2xl bg-paper">
-									<img
-										src={work.src}
-										width={work.width}
-										height={work.height}
-										alt={work.alt}
-										loading="lazy"
-										decoding="async"
-										class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] {i ===
-										0
-											? 'aspect-[16/9]'
-											: 'aspect-square'}"
-									/>
-								</div>
-								<figcaption class="mt-3 text-sm text-slate-ink">{work.caption}</figcaption>
-							</figure>
-						{/each}
-					</div>
-				{:else}
-					<div
-						class="relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-ink p-8 text-white sm:p-10"
-					>
+				<div
+					class="relative grid h-full overflow-hidden rounded-[1.75rem] bg-ink text-white sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)]"
+				>
+					<figure class="relative min-h-[20rem] sm:min-h-full">
+						<img
+							src="/img/equipe-feira-480.webp"
+							srcset="/img/equipe-feira-480.webp 480w, /img/equipe-feira-720.webp 720w"
+							sizes="(min-width: 1024px) 24vw, (min-width: 640px) 40vw, 100vw"
+							width="720"
+							height="900"
+							alt="Dois profissionais sorrindo e fazendo sinal de positivo em uma feira do setor de climatização, diante de estandes de fabricantes de ar-condicionado"
+							loading="lazy"
+							decoding="async"
+							class="absolute inset-0 h-full w-full object-cover object-[50%_30%]"
+						/>
+						<figcaption
+							class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent p-5 pt-14 text-xs text-white/80"
+						>
+							Em feira do setor de refrigeração e climatização
+						</figcaption>
+					</figure>
+
+					<div class="relative flex flex-col justify-between p-8 sm:p-9">
 						<svg
-							class="airflow pointer-events-none absolute inset-x-0 bottom-0 h-48 w-full opacity-60"
+							class="airflow pointer-events-none absolute inset-x-0 bottom-0 h-40 w-full opacity-50"
 							viewBox="0 0 720 200"
 							preserveAspectRatio="none"
 							fill="none"
@@ -81,38 +89,35 @@
 								stroke="#1676D2"
 								stroke-opacity=".45"
 							/>
-							<path
-								d="M0 180C200 130 320 210 480 160s180-70 240-60"
-								stroke="#7B9CC6"
-								stroke-opacity=".25"
-							/>
 						</svg>
 
 						<div class="relative">
-							<div class="flex items-center gap-4">
+							<div class="flex items-center gap-3">
 								<img
 									src={siteConfig.brand.logo}
-									width="56"
-									height="56"
+									width="44"
+									height="44"
 									alt=""
 									loading="lazy"
-									class="h-14 w-14 rounded-full ring-2 ring-steel/50 ring-offset-2 ring-offset-ink"
+									class="h-11 w-11 rounded-full ring-2 ring-steel/50 ring-offset-2 ring-offset-ink"
 								/>
 								<div>
-									<p class="font-heading text-lg font-bold">{siteConfig.name}</p>
+									<p class="font-heading font-bold">{siteConfig.name}</p>
 									<p class="text-sm text-mist">{siteConfig.social.instagramHandle}</p>
 								</div>
 							</div>
-							<h3 class="mt-8 max-w-md text-2xl leading-tight font-bold sm:text-3xl">
-								Instalações, manutenções e higienizações registradas pela própria equipe.
+							<h3 class="mt-7 text-2xl leading-tight font-bold">
+								Atendimento direto e atualização constante no setor.
 							</h3>
-							<p class="mt-4 max-w-md leading-relaxed text-mist">
-								No Instagram da Carvalho você acompanha os serviços realizados em Paraty e a rotina
-								de trabalho do técnico.
+							<p class="mt-3 leading-relaxed text-mist">
+								No Instagram você acompanha os serviços realizados e a rotina de trabalho da
+								Carvalho.
 							</p>
-							<ul class="mt-8 flex flex-wrap gap-2" aria-label="Destaques do Instagram">
+							<ul class="mt-6 flex flex-wrap gap-2" aria-label="Destaques do Instagram">
 								{#each instagramHighlights as highlight (highlight)}
-									<li class="rounded-full border border-white/12 px-4 py-2 text-sm text-white/85">
+									<li
+										class="rounded-full border border-white/12 px-3.5 py-1.5 text-sm text-white/85"
+									>
 										{highlight}
 									</li>
 								{/each}
@@ -123,9 +128,9 @@
 							href={siteConfig.social.instagram}
 							target="_blank"
 							rel="noopener"
-							class="group relative mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-paper"
+							class="group relative mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-paper"
 						>
-							Ver trabalhos no Instagram
+							Ver mais no Instagram
 							<svg
 								class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
 								viewBox="0 0 24 24"
@@ -136,7 +141,7 @@
 							>
 						</a>
 					</div>
-				{/if}
+				</div>
 			</div>
 
 			<!-- Avaliações do Google -->

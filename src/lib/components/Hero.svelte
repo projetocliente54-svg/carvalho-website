@@ -98,14 +98,14 @@
 				class="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-graphite sm:aspect-[16/10] lg:aspect-[4/5]"
 			>
 				<img
-					src="/img/instalacao-detalhe-1024.webp"
-					srcset="/img/instalacao-detalhe-640.webp 640w, /img/instalacao-detalhe-1024.webp 1024w"
+					src="/img/hero-tecnico-condensadora-900.webp"
+					srcset="/img/hero-tecnico-condensadora-640.webp 640w, /img/hero-tecnico-condensadora-900.webp 900w"
 					sizes="(min-width: 1280px) 500px, (min-width: 1024px) 38vw, 100vw"
-					width="1024"
-					height="1280"
-					alt="Unidade de ar-condicionado aberta, com a tubulação de cobre e as conexões de serviço à mostra"
+					width="900"
+					height="1125"
+					alt="Técnico da Carvalho Refrigeração, de uniforme, trabalhando na instalação de uma condensadora LG fixada em suporte na parede externa"
 					fetchpriority="high"
-					class="h-full w-full object-cover object-[50%_62%]"
+					class="h-full w-full object-cover object-[50%_80%] sm:object-[50%_62%] lg:object-center"
 				/>
 				<div
 					class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"
