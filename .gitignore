@@ -21,3 +21,6 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Fotos originais (não publicadas; o site usa as versões otimizadas em static/img)
+/fotos-originais/
