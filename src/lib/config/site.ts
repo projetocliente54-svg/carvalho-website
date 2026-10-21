@@ -60,7 +60,7 @@ export interface SiteConfig {
 	social: {
 		instagram: string;
 		instagramHandle: string;
-		/** PENDENTE: URL do perfil oficial no Google Maps. */
+		/** URL do perfil oficial no Google Maps. */
 		googleMaps: string | null;
 		/** PENDENTE: link "Escrever avaliação" do Perfil da Empresa no Google. */
 		googleReview: string | null;
@@ -98,8 +98,11 @@ export const siteConfig: SiteConfig = {
 	social: {
 		instagram: 'https://www.instagram.com/carvalho_refrigeracao__/',
 		instagramHandle: '@carvalho_refrigeracao__',
-		googleMaps: null,
-		googleReview: null
+		googleMaps:
+			'https://www.google.com/maps/place/Carvalho+Refrigera%C3%A7%C3%A3o+Ar+Condicionado+em+Paraty,+Instala%C3%A7%C3%A3o,+Higieniza%C3%A7%C3%A3o,+Manuten%C3%A7%C3%A3o,+Troca+do+G%C3%A1s/@-23.2223117,-44.7293349,17z/data=!4m15!1m8!3m7!1s0x9d6daa0359b63f:0x6e640eaa7c6a5173!2zQ2FydmFsaG8gUmVmcmlnZXJhw6fDo28gQXIgQ29uZGljaW9uYWRvIGVtIFBhcmF0eSwgSW5zdGFsYcOnw6NvLCBIaWdpZW5pemHDp8OjbywgTWFudXRlbsOnw6NvLCBUcm9jYSBkbyBHw6Fz!8m2!3d-23.2223117!4d-44.7293349!10e5!16s%2Fg%2F11z0zgjkd1!3m5!1s0x9d6daa0359b63f:0x6e640eaa7c6a5173!8m2!3d-23.2223117!4d-44.7293349!16s%2Fg%2F11z0zgjkd1',
+		/** PENDENTE: link "Escrever avaliação" (g.page/r/.../review); até lá, aponta para o perfil no Maps. */
+		googleReview:
+			'https://www.google.com/maps/place/Carvalho+Refrigera%C3%A7%C3%A3o+Ar+Condicionado+em+Paraty,+Instala%C3%A7%C3%A3o,+Higieniza%C3%A7%C3%A3o,+Manuten%C3%A7%C3%A3o,+Troca+do+G%C3%A1s/@-23.2223117,-44.7293349,17z/data=!4m15!1m8!3m7!1s0x9d6daa0359b63f:0x6e640eaa7c6a5173!2zQ2FydmFsaG8gUmVmcmlnZXJhw6fDo28gQXIgQ29uZGljaW9uYWRvIGVtIFBhcmF0eSwgSW5zdGFsYcOnw6NvLCBIaWdpZW5pemHDp8OjbywgTWFudXRlbsOnw6NvLCBUcm9jYSBkbyBHw6Fz!8m2!3d-23.2223117!4d-44.7293349!10e5!16s%2Fg%2F11z0zgjkd1!3m5!1s0x9d6daa0359b63f:0x6e640eaa7c6a5173!8m2!3d-23.2223117!4d-44.7293349!16s%2Fg%2F11z0zgjkd1'
 	},
 	brand: {
 		logo: '/brand/carvalho-logo.webp',
