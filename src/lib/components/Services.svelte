@@ -29,15 +29,15 @@
 					class="group relative overflow-hidden rounded-[1.5rem] bg-graphite lg:sticky lg:top-28"
 				>
 					<img
-						src="/img/higienizacao-bolsa-coletora-1000.webp"
-						srcset="/img/higienizacao-bolsa-coletora-640.webp 640w, /img/higienizacao-bolsa-coletora-1000.webp 1000w"
+						src="/img/higienizacao-bolsa-coletora-v2-900.webp"
+						srcset="/img/higienizacao-bolsa-coletora-v2-640.webp 640w, /img/higienizacao-bolsa-coletora-v2-900.webp 900w"
 						sizes="(min-width: 1024px) 38vw, 92vw"
-						width="1000"
-						height="904"
+						width="900"
+						height="1125"
 						loading="lazy"
 						decoding="async"
 						alt="Evaporadora aberta durante a higienização, com a bolsa coletora azul instalada sob o aparelho"
-						class="aspect-[4/5] w-full object-cover object-[50%_40%] transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03] max-lg:aspect-[16/11]"
+						class="aspect-[4/5] w-full object-cover object-[50%_40%] transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03] max-lg:aspect-[16/11] max-lg:object-[50%_72%]"
 					/>
 					<figcaption
 						class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-ink/85 to-transparent p-6 pt-16 text-sm text-white/85"

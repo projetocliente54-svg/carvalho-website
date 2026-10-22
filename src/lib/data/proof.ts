@@ -111,6 +111,22 @@ export const works: Work[] = [
 		width: 800,
 		height: 1000,
 		alt: 'Condensadora Hitachi instalada em suportes acima de uma porta de vidro'
+	},
+	{
+		src: '/img/instalacoes/09-condensadora-tcl-telhado-480.webp',
+		srcset:
+			'/img/instalacoes/09-condensadora-tcl-telhado-480.webp 480w, /img/instalacoes/09-condensadora-tcl-telhado-800.webp 800w',
+		width: 800,
+		height: 1000,
+		alt: 'Condensadora TCL em suportes na parede amarela, sob o beiral de telhas, com o manifold conectado'
+	},
+	{
+		src: '/img/instalacoes/10-condensadora-lg-varanda-480.webp',
+		srcset:
+			'/img/instalacoes/10-condensadora-lg-varanda-480.webp 480w, /img/instalacoes/10-condensadora-lg-varanda-800.webp 800w',
+		width: 800,
+		height: 1000,
+		alt: 'Condensadora LG Smart Inverter sob o forro de madeira da varanda, acima da porta de vidro'
 	}
 ];
 
@@ -118,8 +134,10 @@ export const works: Work[] = [
 const googleReviews = siteConfig.social.googleMaps;
 
 /**
- * 5 de 23 avaliações da ficha oficial (todas 5 estrelas), copiadas em 21/10/2026.
- * Todas apareciam como "7 meses atrás". Fotos: perfis públicos do Google, 96 px.
+ * 10 de 23 avaliações da ficha oficial (todas 5 estrelas), copiadas em 21/10/2026 (as 5
+ * primeiras) e 22/10/2026 (as 5 seguintes). Apareciam como "7 meses atrás", exceto Nathalia
+ * Oliveira ("6 meses atrás"). Fotos: perfis públicos do Google, 96 px; só entram perfis com
+ * foto real (o avatar padrão de letra do Google não conta).
  */
 export const reviews: Review[] = [
 	{
@@ -158,6 +176,46 @@ export const reviews: Review[] = [
 		author: 'Marcela Belchior',
 		avatar: '/img/avaliacoes/marcela-belchior.webp',
 		text: 'Empresa excelente! Atendimento excepcional e um serviço feito com muita maestria e com uma qualidade sem igual. Indico de olhos fechados.',
+		rating: 5,
+		date: '2026',
+		url: googleReviews
+	},
+	{
+		author: 'Loide Nascimento',
+		avatar: '/img/avaliacoes/loide-nascimento.webp',
+		text: 'Excelente o trabalho realizado no ar condicionado... Profissional competente.',
+		rating: 5,
+		date: '2026',
+		url: googleReviews
+	},
+	{
+		author: 'Thomas Junio',
+		avatar: '/img/avaliacoes/thomas-junio.webp',
+		text: 'Profissionalismo é muito dedicado aos detalhes, ótimo atendimento!',
+		rating: 5,
+		date: '2026',
+		url: googleReviews
+	},
+	{
+		author: 'Matheus Andrade',
+		avatar: '/img/avaliacoes/matheus-andrade.webp',
+		text: 'Excelente atendimento! Equipe atenciosa, serviço rápido e de qualidade. Recomendo! O melhor da cidade!',
+		rating: 5,
+		date: '2026',
+		url: googleReviews
+	},
+	{
+		author: 'TG-lord_kratos',
+		avatar: '/img/avaliacoes/tg-lord-kratos.webp',
+		text: 'Ótimo atendimento, chamarei mais vezes.',
+		rating: 5,
+		date: '2026',
+		url: googleReviews
+	},
+	{
+		author: 'Nathalia Oliveira',
+		avatar: '/img/avaliacoes/nathalia-oliveira.webp',
+		text: 'Excelente profissional.',
 		rating: 5,
 		date: '2026',
 		url: googleReviews
