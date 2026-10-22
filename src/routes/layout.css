@@ -1,5 +1,23 @@
 @import 'tailwindcss';
 
+/* Subconjunto latino do Google Fonts (OFL), hospedado em static/fonts */
+@font-face {
+	font-family: 'Archivo';
+	font-style: normal;
+	font-weight: 500 800;
+	font-stretch: 100% 125%;
+	font-display: swap;
+	src: url('/fonts/archivo-latin.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400 600;
+	font-display: swap;
+	src: url('/fonts/inter-latin.woff2') format('woff2');
+}
+
 @theme {
 	--font-heading: 'Archivo', ui-sans-serif, system-ui, sans-serif;
 	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;

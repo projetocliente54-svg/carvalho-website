@@ -14,16 +14,22 @@ Site institucional e comercial da Carvalho Refrigeração (Paraty, RJ), em Svelt
 
 Campos marcados com `PENDENTE` em `site.ts` ficam fora do site enquanto forem `null`:
 
-- `url` — domínio definitivo. Enquanto vazio, canonical, sitemap e robots usam o domínio da requisição.
+- `url` — domínio definitivo. Enquanto vazio, canonical, Open Graph, sitemap e robots usam o domínio da requisição — o site responderia como canônico tanto em `*.pages.dev` quanto no domínio próprio. Preencha antes de divulgar o link.
 - `contact.address` — o endereço (Av. Roberto Silveira, 843 — Centro) só aparece em diretório de terceiros; confirme antes de publicar.
 - `contact.openingHours` — horário de atendimento.
-- `social.googleMaps` / `social.googleReview` — links do Perfil da Empresa no Google.
-- `brand.logo` — hoje usa o logotipo público do Instagram (100×100 px). Substitua pelo arquivo original em alta resolução em `static/brand/`.
+- `social.googleReview` — hoje aponta para o perfil no Maps; troque pelo link direto "Escrever avaliação" (`g.page/r/.../review`) do Perfil da Empresa.
+- `brand.logo` — hoje usa o logotipo público do Instagram (100×100 px), que fica levemente borrado em telas de alta densidade e abaixo do mínimo de 112 px que o Google recomenda para logotipos. Substitua pelo arquivo original em alta resolução em `static/brand/` (e regenere `apple-touch-icon.png`).
 
 ### Trabalhos e avaliações
 
-- Adicione fotos reais em `static/img/trabalhos/` (WebP, ~1200 px) e registre-as em `works`.
+- Fotos do carrossel ficam em `static/img/instalacoes/` em duas larguras (480 e 800 px, WebP, recorte 4:5) e são registradas em `works`.
 - Copie avaliações do Google sem alterar o texto em `reviews`. Preencha `reviewSummary` somente com a nota e a quantidade exibidas na ficha oficial — isso também ativa o `AggregateRating` nos dados estruturados.
+
+## Fontes e cache
+
+- Archivo e Inter são servidas pelo próprio site (`static/fonts/`, subconjunto latino do Google Fonts, licença OFL), com `preload` em `src/app.html` e `@font-face` em `src/routes/layout.css`.
+- `_headers` (na raiz do projeto — o adaptador não aceita o arquivo em `static/`) define o cache de imagens, logotipo e fontes no Cloudflare Pages. Como as imagens não têm hash no nome, ao substituir uma foto use um nome de arquivo novo.
+- `src/hooks.server.ts` adiciona cabeçalhos básicos de segurança às páginas geradas pelo Worker.
 
 ## Deploy no Cloudflare Pages
 

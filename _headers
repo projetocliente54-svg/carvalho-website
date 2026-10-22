@@ -1,0 +1,14 @@
+# Cloudflare Pages: cache dos arquivos de static/. O adaptador copia este arquivo para o build e acrescenta as regras de /_app.
+# Imagens não têm hash no nome: ao trocar uma foto, use um nome novo ou espere até 7 dias.
+/img/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/brand/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

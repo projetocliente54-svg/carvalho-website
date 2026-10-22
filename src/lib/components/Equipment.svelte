@@ -69,7 +69,7 @@
 				<p class="eyebrow text-sky">Comprar ar-condicionado em Paraty</p>
 				<h2
 					id="equipamentos-titulo"
-					class="mt-4 text-4xl leading-[1.02] font-extrabold sm:text-5xl lg:text-[2.9rem] xl:text-[3.4rem]"
+					class="mt-4 text-[clamp(1.875rem,9.8vw,2.25rem)] leading-[1.02] font-extrabold sm:text-5xl lg:text-[2.9rem] xl:text-[3.4rem]"
 				>
 					<NoBreak text="Procurando um ar-condicionado novo?" />
 				</h2>

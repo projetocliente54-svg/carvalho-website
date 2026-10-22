@@ -8,11 +8,20 @@
 		<script>
 			document.documentElement.classList.add('js');
 		</script>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- Fontes servidas pelo próprio site (@font-face em layout.css): sem CSS externo bloqueando a renderização -->
 		<link
-			href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Inter:wght@400..600&display=swap"
-			rel="stylesheet"
+			rel="preload"
+			href="%sveltekit.assets%/fonts/inter-latin.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="%sveltekit.assets%/fonts/archivo-latin.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
 		/>
 		<link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/favicon-32.png" />
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />

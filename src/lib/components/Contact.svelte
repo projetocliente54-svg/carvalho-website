@@ -58,7 +58,7 @@
 			<p class="eyebrow text-steel">Contato · {siteConfig.city}, {siteConfig.regionCode}</p>
 			<h2
 				id="contato-titulo"
-				class="mt-4 text-4xl leading-[1.02] font-extrabold sm:text-5xl lg:text-[3.6rem]"
+				class="mt-4 text-[clamp(1.875rem,9.8vw,2.25rem)] leading-[1.02] font-extrabold sm:text-5xl lg:text-[3.6rem]"
 			>
 				<NoBreak text="Precisa instalar, cuidar ou comprar um ar-condicionado?" />
 			</h2>

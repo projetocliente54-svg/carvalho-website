@@ -15,6 +15,14 @@
 	function onKeydown(event: KeyboardEvent) {
 		if (event.key === 'Escape' && menuOpen) setMenu(false);
 	}
+
+	// O menu some no desktop (lg); sem isso, girar um tablet com o menu aberto deixava a página sem rolagem.
+	$effect(() => {
+		const desktop = matchMedia('(min-width: 64rem)');
+		const onChange = () => desktop.matches && setMenu(false);
+		desktop.addEventListener('change', onChange);
+		return () => desktop.removeEventListener('change', onChange);
+	});
 </script>
 
 <svelte:window bind:scrollY onkeydown={onKeydown} />

@@ -106,13 +106,13 @@
 		class="-mx-4 no-scrollbar flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:-mx-6 sm:scroll-px-6 sm:px-6 lg:mx-0 lg:scroll-px-0 lg:gap-5 lg:px-0"
 	>
 		{#each items as item, i (item.src)}
-			<li
-				class="w-[78%] shrink-0 snap-start sm:w-[44%] lg:w-[calc((100%-3.75rem)/3.5)]"
-				role="group"
-				aria-roledescription="slide"
-				aria-label="{i + 1} de {items.length}"
-			>
-				<figure class="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-paper">
+			<li class="w-[78%] shrink-0 snap-start sm:w-[44%] lg:w-[calc((100%-3.75rem)/3.5)]">
+				<figure
+					class="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-paper"
+					role="group"
+					aria-roledescription="slide"
+					aria-label="{i + 1} de {items.length}"
+				>
 					<img
 						src={item.src}
 						srcset={item.srcset}

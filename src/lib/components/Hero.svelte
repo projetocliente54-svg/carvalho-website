@@ -11,7 +11,11 @@
 	];
 </script>
 
-<section id="inicio" class="relative isolate overflow-hidden bg-ink text-white">
+<!-- Desktop: ~95svh, com piso e teto para telas baixas e altas; o conteúdo sempre pode crescer -->
+<section
+	id="inicio"
+	class="relative isolate overflow-hidden bg-ink text-white lg:flex lg:min-h-[clamp(36rem,95svh,68rem)] lg:flex-col"
+>
 	<!-- Fluxo de ar: linhas finas em movimento lento -->
 	<svg
 		class="airflow pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-60"
@@ -42,28 +46,29 @@
 	></div>
 
 	<div
-		class="mx-auto grid max-w-7xl gap-12 px-4 pt-[calc(var(--header-h)+2.5rem)] pb-14 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:pt-[calc(var(--header-h)+4.5rem)] lg:pb-20"
+		class="mx-auto grid w-full max-w-7xl gap-10 px-4 pt-[calc(var(--header-h)+2rem)] pb-12 sm:gap-12 sm:px-6 sm:pt-[calc(var(--header-h)+2.5rem)] sm:pb-14 lg:flex-1 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:pt-[calc(var(--header-h)+2.5rem)] lg:pb-12"
 	>
-		<div class="flex flex-col justify-center lg:col-span-7">
+		<div class="flex min-w-0 flex-col justify-center lg:col-span-7">
 			<p class="eyebrow flex items-center gap-3 text-steel">
 				<span class="h-px w-8 bg-steel/60" aria-hidden="true"></span>
 				Carvalho Refrigeração · {siteConfig.city}, {siteConfig.regionCode}
 			</p>
 
+			<!-- Abaixo de ~390 px a fonte acompanha a largura para "ar-condicionado," caber sem quebrar -->
 			<h1
-				class="mt-6 text-[2.45rem] leading-[0.98] font-extrabold sm:text-[3.6rem] md:text-[4.2rem] lg:text-[3.5rem] xl:text-[4.5rem]"
+				class="mt-6 text-[clamp(2rem,10vw,2.45rem)] leading-[0.98] font-extrabold sm:text-[3.6rem] md:text-[4.2rem] lg:text-[3.5rem] xl:text-[4.5rem] xl:[@media(max-height:50rem)]:text-[3.9rem]"
 			>
 				<span class="block">Seu</span>
 				<span class="block whitespace-nowrap">ar-condicionado,</span>
 				<span class="block text-sky">em boas mãos.</span>
 			</h1>
 
-			<p class="mt-7 max-w-xl text-lg leading-relaxed text-mist sm:text-xl">
+			<p class="mt-7 max-w-xl text-lg leading-relaxed text-mist sm:text-xl lg:mt-6">
 				Instalação, manutenção, higienização e venda de ar-condicionado em Paraty. Atendimento
 				direto, orientação na escolha do aparelho e cuidado em cada etapa do serviço.
 			</p>
 
-			<div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+			<div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center lg:mt-8">
 				<a
 					href={whatsappUrl('orcamento')}
 					target="_blank"
@@ -95,7 +100,7 @@
 
 		<figure class="relative w-full lg:col-span-5">
 			<div
-				class="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-graphite sm:aspect-[16/10] lg:aspect-[4/5]"
+				class="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-graphite sm:aspect-[16/9] lg:aspect-auto lg:h-full lg:min-h-[24rem]"
 			>
 				<img
 					src="/img/hero-tecnico-condensadora-900.webp"
@@ -105,7 +110,7 @@
 					height="1125"
 					alt="Técnico da Carvalho Refrigeração, de uniforme, trabalhando na instalação de uma condensadora LG fixada em suporte na parede externa"
 					fetchpriority="high"
-					class="h-full w-full object-cover object-[50%_80%] sm:object-[50%_62%] lg:object-center"
+					class="h-full w-full object-cover object-[50%_80%] sm:object-[50%_62%] lg:absolute lg:inset-0 lg:object-center"
 				/>
 				<div
 					class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"
